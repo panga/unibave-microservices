@@ -1,0 +1,6 @@
+server:
+  port: ${PORT:9001}
+
+management:
+  security:
+    enabled: false

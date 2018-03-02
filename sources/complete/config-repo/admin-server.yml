@@ -1,0 +1,18 @@
+server:
+  port: ${PORT:9000}
+
+management:
+  security:
+    enabled: false
+
+security:
+  user:
+    name: admin
+    password: t0ps3cr3t
+    
+spring:
+  boot:
+    admin:
+      url: http://localhost:9000
+      routes: 
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti

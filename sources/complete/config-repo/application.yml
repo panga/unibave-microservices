@@ -1,0 +1,38 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
+info:
+  id: ${spring.application.name}
+ 
+logging:
+  level: info
+  logstash:
+    host: localhost
+    port: 5000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eurekaUser:eurekaPassword@localhost:8761/eureka}
+  instance:
+    preferIpAddress: true  
+
+---
+spring:
+  profiles: docker
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+
+logging:
+  level: info
+  logstash:
+    host: logstash
+    port: 5000
+
+eureka:
+ client:
+   serviceUrl:
+     defaultZone: ${EUREKA_URI:http://eurekaUser:eurekaPassword@eureka-server:8761/eureka}
+ instance:
+   preferIpAddress: true  

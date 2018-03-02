@@ -1,0 +1,35 @@
+server:
+  port: 8888
+
+management:
+  security:
+    enabled: false
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    bus:
+      enabled: true
+    config:
+      server:
+        git:
+          uri: https://github.com/rcandidosilva/workshop-microservices.git
+          search-paths: sources/extras/config-repo        
+  rabbitmq:
+    host: localhost
+    port: 5672    
+    
+security:
+  user:
+    name: configUser
+    password: configPassword
+    role: SYSTEM
+    
+---
+spring:
+  profiles: docker
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+  

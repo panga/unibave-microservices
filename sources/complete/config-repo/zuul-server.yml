@@ -1,0 +1,26 @@
+server:
+  port: ${PORT:8000}
+    
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    aluno-service:
+      path: /aluno/**
+#      url: http://localhost:8080
+      serviceId: aluno-service
+    disciplina-service:
+      path: /disciplina/**
+#      url: http://localhost:8081
+      serviceId: disciplina-service
+
+#ribbon:
+#  eureka:
+#    enabled: false
+      
+#aluno-service:
+#  ribbon:
+#    listOfServers: localhost:8080,localhost:18080
+    
+#disciplina-service:
+#  ribbon:
+#    listOfServers: localhost:8081,localhost:18081

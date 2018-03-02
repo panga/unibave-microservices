@@ -1,0 +1,14 @@
+server:
+  port: ${PORT:7979}
+    
+turbine:
+  appConfig: aluno-service,disciplina-service
+  clusterNameExpression: "'default'"    
+  
+security:
+  basic:
+    enabled: true
+  user:
+    name: hystrixUser
+    password: hystrixPassword
+    role: SYSTEM  
