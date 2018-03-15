@@ -8,14 +8,18 @@ management:
 spring:
   application:
     name: config-server
+  profiles:
+    include: native # required to use native search-paths
   cloud:
     bus:
       enabled: true
     config:
       server:
-        git:
-          uri: https://github.com/rcandidosilva/workshop-microservices.git
-          search-paths: sources/extras/config-repo        
+        native:
+          search-locations: file:/config-repo
+        # git:
+        #   uri: https://github.com/panga/unibave-microservices.git
+        #   search-paths: sources/complete/config-repo        
   rabbitmq:
     host: localhost
     port: 5672    
@@ -25,11 +29,10 @@ security:
     name: configUser
     password: configPassword
     role: SYSTEM
-    
+
 ---
 spring:
   profiles: docker
   rabbitmq:
     host: rabbitmq
     port: 5672
-  

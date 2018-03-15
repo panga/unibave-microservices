@@ -33,6 +33,8 @@ security:
 ---
 spring:
   profiles: docker
+  zipkin:
+    baseUrl: http://zipkin-server:9411/
 
 security:
   oauth2:

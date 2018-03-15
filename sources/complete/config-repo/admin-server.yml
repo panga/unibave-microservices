@@ -14,5 +14,8 @@ spring:
   boot:
     admin:
       url: http://localhost:9000
+      turbine:
+        clusters: default
+        location: http://turbine-stream:8989
       routes: 
         endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti

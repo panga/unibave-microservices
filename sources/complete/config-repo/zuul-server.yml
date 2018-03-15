@@ -24,3 +24,14 @@ zuul:
 #disciplina-service:
 #  ribbon:
 #    listOfServers: localhost:8081,localhost:18081
+
+---
+spring:
+  profiles: docker
+  zipkin:
+    baseUrl: http://zipkin-server:9411/
+
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://security-server:9999/users/current        
